@@ -40,37 +40,37 @@ graph TD
   classDef backend fill:#e2e8f0,stroke:#2563eb,stroke-width:2px,color:#0f172a,font-weight:bold;
   classDef db fill:#dcfce7,stroke:#15803d,stroke-width:2px,color:#065f46,font-weight:bold;
 
-  subgraph CLIENT_LAYER [🎨 Presentation & UI Layer]
-    A["Bento-Grid Landing & Auth Portal (Bootstrap 5 SPA)"]:::frontend
-    B["Executive Admin Workspace (DOM / Fetch API)"]:::frontend
+  subgraph CLIENT_LAYER [Presentation and UI Layer]
+    A["Bento-Grid Landing and Auth Portal (Bootstrap 5 SPA)"]:::frontend
+    B["Executive Admin Workspace (DOM and Fetch API)"]:::frontend
   end
 
-  subgraph SECURITY_LAYER [🔐 Security & Authorization Layer]
+  subgraph SECURITY_LAYER [Security and Authorization Layer]
     C["JwtAuthFilter (Stateless Interceptor)"]:::security
     D["SecurityConfig (Role-Based URL Whitelisting)"]:::security
-    E["BCrypt Password Encoder & JWT Utils"]:::security
+    E["BCrypt Password Encoder and JWT Utils"]:::security
   end
 
-  subgraph CORE_APPLICATION [⚙️ Spring Boot Core Engine]
+  subgraph CORE_APPLICATION [Spring Boot Core Engine]
     F["REST Controllers (Employee, Department, Auth)"]:::backend
-    G["Service Layer (Enterprise Business Logic & Transactional DTO Validation)"]:::backend
-    H["Spring Data JPA Repositories & Hibernate ORM"]:::backend
+    G["Service Layer (Business Logic and DTO Validation)"]:::backend
+    H["Spring Data JPA Repositories and Hibernate ORM"]:::backend
   end
 
-  subgraph PERSISTENCE [🗄️ Persistence Layer]
-    I["Embedded H2 Database (Zero-Setup Portable File DB)"]:::db
+  subgraph PERSISTENCE [Persistence Layer]
+    I["Embedded H2 Database (Zero-Setup Portable DB)"]:::db
     J["Enterprise MySQL 8 Instance (Production Profile)"]:::db
   end
 
   %% Data Flow Wiring
-  A <-->|HTTP REST / JWT Token| C
+  A <-->|HTTP REST and JWT Token| C
   B <-->|Bearer Token in Auth Header| C
-  C -->|Validate Signature & Populate SecurityContext| D
+  C -->|Validate Signature and Security Context| D
   D -->|Authorized HTTP Request| F
-  F <-->|Data Transfer Objects (DTO)| G
+  F <-->|Data Transfer Objects and DTOs| G
   G <-->|JPA Entities| H
-  H <-->|JDBC / Hibernate Dialect| I
-  H -.-|Swappable via application.properties| J
+  H <-->|JDBC and Hibernate Dialect| I
+  H -.-|Swappable via application properties| J
 ```
 
 ---
