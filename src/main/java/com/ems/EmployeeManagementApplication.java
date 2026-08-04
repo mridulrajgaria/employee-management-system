@@ -13,9 +13,10 @@ public class EmployeeManagementApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(EmployeeManagementApplication.class, args);
-        System.out.println("==============================================");
-        System.out.println("  Smart Employee Management System - RUNNING  ");
-        System.out.println("  Swagger UI: http://localhost:8080/swagger-ui.html");
-        System.out.println("==============================================");
+        System.out.println("=================================================================");
+        System.out.println("  ⚡ SmartEMS Full-Stack Workforce Platform - RUNNING            ");
+        System.out.println("  🌐 Web Portal (Tabela UI): http://localhost:8080/              ");
+        System.out.println("  📚 OpenAPI Swagger Docs  : http://localhost:8080/swagger-ui.html");
+        System.out.println("=================================================================");
     }
 }

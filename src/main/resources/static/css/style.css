@@ -1,0 +1,267 @@
+/* TABELA BENTO-GRID BOOTSTRAP DESIGN SYSTEM (ENTERPRISE MASTERPIECE) */
+
+:root {
+    --bg-main: #fcfbf9;
+    --bento-bg: #f4f3ec;
+    --card-white: #ffffff;
+    --card-dark: #202226;
+    --accent-lime: #ccff00;
+    --accent-lime-light: #f1fcc2;
+    --text-main: #18191c;
+    --text-muted: #6c757d;
+    --border-color: #e6e5df;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6, .navbar-brand, .modal-title, .hero-headline {
+    font-family: 'Outfit', sans-serif;
+}
+
+.max-w-1300 { max-width: 1300px !important; margin: 0 auto; }
+.max-w-1100 { max-width: 1100px !important; margin: 0 auto; }
+.max-w-450  { max-width: 450px !important; }
+.max-w-400  { max-width: 400px; }
+.max-w-150  { max-width: 150px; }
+.cursor-pointer { cursor: pointer; }
+.hidden { display: none !important; }
+.view { display: none; }
+.view.active { display: block; }
+.z-1 { z-index: 1; }
+
+/* CUSTOM BUTTONS & PILLS */
+.btn-pill-dark {
+    background-color: #1a1a1c;
+    color: #ffffff;
+    border: 2px solid #1a1a1c;
+    border-radius: 50rem;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-pill-dark:hover {
+    background-color: #333336;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.btn-pill-primary {
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 50rem;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+.btn-pill-primary:hover {
+    background-color: #1d4ed8;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+}
+
+.brand-dots i { font-size: 0.65rem; margin-right: 2px; }
+.text-lime { color: #92b800 !important; }
+.bento-dark .text-lime { color: var(--accent-lime) !important; }
+
+/* BENTO HERO WRAPPER */
+.bento-hero-wrapper {
+    background-color: var(--bento-bg);
+    border-radius: 36px;
+    border: 1px solid var(--border-color);
+}
+.hero-headline {
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+    color: #1a1a1c;
+}
+
+/* CIRCLE HIGHLIGHT (LIKE TABELA) */
+.highlight-circle {
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+}
+.highlight-circle::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -10px;
+    right: -10px;
+    bottom: -5px;
+    border: 3px solid #b7e600;
+    border-radius: 50% / 40%;
+    transform: rotate(-2deg);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.icon-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.bg-lime { background-color: var(--accent-lime) !important; }
+.bg-lime-light { background-color: var(--accent-lime-light) !important; }
+
+/* BENTO CARDS (UNIVERSAL HIGH-IMPACT STYLING) */
+.bento-card {
+    border-radius: 28px;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid rgba(0,0,0,0.06);
+}
+.bento-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+.bento-white {
+    background-color: var(--card-white);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+.bento-dark {
+    background-color: var(--card-dark);
+    color: #ffffff;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+}
+.bento-lime {
+    background-color: var(--accent-lime);
+    color: #18191c;
+    box-shadow: 0 8px 30px rgba(204, 255, 0, 0.25);
+}
+
+.search-pill {
+    background: #f4f5f7;
+    padding: 8px 16px;
+    border-radius: 50rem;
+    font-size: 0.85rem;
+}
+.avatar-sm {
+    width: 38px;
+    height: 38px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+.bg-light-green { background-color: #dcfce7; }
+.badge-lime {
+    background-color: var(--accent-lime);
+    color: #000000;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 50rem;
+}
+
+.text-light-gray { color: #a1a1aa; font-size: 0.9rem; }
+.letter-spacing-1 { letter-spacing: 2px; }
+.badge-pill-light {
+    background: #f1f3f5;
+    color: #343a40;
+    padding: 6px 12px;
+    border-radius: 50rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.arrow-btn-circle {
+    width: 52px;
+    height: 52px;
+    background: #1a1a1c;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+.bento-lime:hover .arrow-btn-circle {
+    transform: scale(1.1) rotate(-15deg);
+}
+
+/* LUXURY SPLIT-SCREEN AUTHENTICATION PORTAL */
+.auth-split-box {
+    min-height: 600px;
+    border-color: var(--border-color) !important;
+}
+.nav-pills .nav-link.active {
+    background-color: #1a1a1c !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.nav-pills .nav-link {
+    color: #6c757d;
+    transition: all 0.2s;
+}
+.form-control:focus, .form-select:focus {
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    border-color: #2563eb;
+    background-color: #ffffff !important;
+}
+
+/* AFTER-LOGIN EXECUTIVE WORKFORCE DASHBOARD */
+.kpi-icon-box {
+    width: 54px;
+    height: 54px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.custom-table th {
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 11px !important;
+}
+.custom-table tbody tr {
+    transition: background 0.15s ease;
+}
+.custom-table tbody tr:hover {
+    background-color: #f8fafe !important;
+}
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+/* RESPONSIVE OPTIMIZATIONS */
+@media (max-width: 992px) {
+    .auth-split-box {
+        min-height: auto;
+    }
+}
+@media (max-width: 768px) {
+    .bento-hero-wrapper {
+        border-radius: 24px;
+        padding: 1.5rem !important;
+    }
+    .hero-headline {
+        font-size: 2.5rem !important;
+    }
+    .display-5 {
+        font-size: 2rem !important;
+    }
+}

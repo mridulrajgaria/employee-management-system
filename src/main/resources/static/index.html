@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartEMS | Enterprise Workforce Management</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts: Outfit & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom Tabela Bento Design System -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ================================================================= -->
+    <!-- 1. LANDING PAGE VIEW (TABELA BENTO-GRID HERO)                     -->
+    <!-- ================================================================= -->
+    <div id="landing-container" class="view active">
+        <nav class="navbar navbar-expand-lg bg-transparent py-4 px-4 px-lg-5">
+            <div class="container-fluid max-w-1300">
+                <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="#">
+                    <span class="brand-dots"><i class="bi bi-circle-fill text-dark"></i><i class="bi bi-circle-fill text-lime"></i></span>
+                    <span class="brand-text">SMART<span class="fw-light">EMS</span></span>
+                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav gap-lg-4 fw-medium">
+                        <li class="nav-item"><a class="nav-link" href="#bento-section">Platform</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#bento-section">Architecture</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#bento-section">Security</a></li>
+                    </ul>
+                </div>
+                <div class="d-none d-lg-flex">
+                    <button class="btn btn-pill-dark px-4 py-2" onclick="showAuth('login')">Open Workforce Portal <i class="bi bi-arrow-right ms-1"></i></button>
+                </div>
+            </div>
+        </nav>
+
+        <main class="container-fluid px-3 px-md-5 pb-5">
+            <div class="bento-hero-wrapper max-w-1300 mx-auto p-4 p-md-5">
+                <div class="row align-items-center mb-5 pb-2">
+                    <div class="col-lg-8">
+                        <h1 class="hero-headline display-4 fw-bold">
+                            Your <span class="highlight-circle">Ultimate</span> Employee<br>Management Solution
+                        </h1>
+                    </div>
+                    <div class="col-lg-4 mt-4 mt-lg-0">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-circle"><i class="bi bi-people-fill"></i></div>
+                            <div class="icon-circle"><i class="bi bi-diagram-3-fill"></i></div>
+                            <div class="icon-circle bg-lime text-dark"><i class="bi bi-shield-lock-fill"></i></div>
+                        </div>
+                        <p class="hero-subtext mb-0 text-secondary fw-medium">
+                            All essential workforce organization, department orchestration, and payroll reporting in one robust Spring Boot unified platform.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Bento Grid Section -->
+                <div class="row g-4" id="bento-section">
+                    <!-- Bento 1: Live Directory Preview -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="bento-card bento-white h-100 p-4 d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="search-pill mb-4 d-flex align-items-center text-muted">
+                                    <i class="bi bi-search me-2"></i> <span>Search Workforce...</span>
+                                </div>
+                                <h6 class="fw-bold text-dark mb-3">Engineers On Active Projects</h6>
+                                <div class="mini-emp-list d-flex flex-column gap-3">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <img src="https://ui-avatars.com/api/?name=Kristin+Watson&background=2563eb&color=fff&rounded=true&size=36" alt="avatar" class="avatar-sm">
+                                            <span class="fw-medium">Kristin Watson</span>
+                                        </div>
+                                        <span class="badge bg-light-green text-success">Active</span>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <img src="https://ui-avatars.com/api/?name=Jacob+Jones&background=4f46e5&color=fff&rounded=true&size=36" alt="avatar" class="avatar-sm">
+                                            <span class="fw-medium">Jacob Jones</span>
+                                        </div>
+                                        <span class="badge bg-light-green text-success">Onsite</span>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <img src="https://ui-avatars.com/api/?name=Ronald+Richards&background=0284c7&color=fff&rounded=true&size=36" alt="avatar" class="avatar-sm">
+                                            <span class="fw-medium">Ronald Richards</span>
+                                        </div>
+                                        <span class="badge bg-light-green text-success">Remote</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4 pt-3 border-top d-flex justify-content-between align-items-center">
+                                <span class="small text-muted"><i class="bi bi-shield-check text-success"></i> JWT Encrypted</span>
+                                <a href="javascript:void(0)" onclick="showAuth('login')" class="fw-bold text-decoration-none small text-primary">View Full Grid →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bento 2: Payroll Receipt Card (Dark Theme) -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="bento-card bento-dark h-100 p-4 d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="receipt-header text-center pb-3 border-bottom border-secondary mb-3">
+                                    <span class="receipt-title fw-bold letter-spacing-1 text-uppercase">PAYROLL & COMP</span>
+                                    <div class="d-flex justify-content-between small text-secondary mt-2">
+                                        <span>Dept: Engineering</span>
+                                        <span>Q3 Compensation</span>
+                                    </div>
+                                </div>
+                                <div class="receipt-items d-flex flex-column gap-3 mb-4">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="text-light-gray">Senior Cloud Architect</span>
+                                        <span class="fw-bold text-white">$125,000</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <span class="text-light-gray">Full Stack Developer</span>
+                                        <span class="fw-bold text-white">$95,500</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <span class="text-light-gray">Product UI Specialist</span>
+                                        <span class="fw-bold text-white">$82,000</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="receipt-footer pt-3 border-top border-secondary d-flex justify-content-between align-items-center">
+                                <span class="fw-bold text-white fs-5">Avg Compensation</span>
+                                <span class="badge badge-lime fs-6">$100,833</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bento 3: Architecture & Action -->
+                    <div class="col-lg-4 col-md-12">
+                        <div class="row g-4 h-100">
+                            <div class="col-lg-12 col-md-6">
+                                <div class="bento-card bento-white p-4 h-100 d-flex flex-column justify-content-between">
+                                    <div class="d-flex align-items-center justify-content-between mb-2">
+                                        <h6 class="fw-bold m-0">Departmental Units</h6>
+                                        <span class="badge bg-dark text-white">Spring JPA</span>
+                                    </div>
+                                    <p class="small text-muted mb-3">Organize teams into isolated database relationships with relational auditing.</p>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <span class="badge-pill-light"><i class="bi bi-cloud text-primary"></i> Cloud Infra</span>
+                                        <span class="badge-pill-light"><i class="bi bi-cpu text-warning"></i> AI Core</span>
+                                        <span class="badge-pill-light"><i class="bi bi-graph-up text-success"></i> Sales Ops</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-6">
+                                <div class="bento-card bento-lime p-4 h-100 d-flex align-items-center justify-content-between cursor-pointer" onclick="showAuth('login')">
+                                    <div>
+                                        <span class="badge bg-dark text-lime mb-2">Instant Demo</span>
+                                        <h5 class="fw-bold text-dark m-0">Try seamless operational control</h5>
+                                    </div>
+                                    <div class="arrow-btn-circle">
+                                        <i class="bi bi-arrow-right fs-4"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-5 pt-4 border-top d-flex flex-wrap align-items-center justify-content-between text-muted small">
+                    <span><i class="bi bi-check-circle-fill text-dark me-1"></i> Java 17 LTS Built</span>
+                    <span><i class="bi bi-check-circle-fill text-dark me-1"></i> Spring Security & JWT Auth</span>
+                    <span><i class="bi bi-check-circle-fill text-dark me-1"></i> Hibernate JPA Persistence</span>
+                    <span><i class="bi bi-check-circle-fill text-dark me-1"></i> Responsive Bootstrap 5 Architecture</span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- 2. LUXURY SPLIT-SCREEN AUTHENTICATION PORTAL                      -->
+    <!-- ================================================================= -->
+    <div id="auth-container" class="view hidden my-4 py-4">
+        <div class="container max-w-1100">
+            <div class="auth-split-box bg-white border rounded-5 shadow-lg overflow-hidden row g-0">
+                
+                <!-- Left Column: Bento Security & Enterprise Value Proposition -->
+                <div class="col-lg-5 bento-dark p-5 d-flex flex-column justify-content-between position-relative overflow-hidden">
+                    <div class="position-relative z-1">
+                        <a href="javascript:void(0)" onclick="showLanding()" class="text-decoration-none d-inline-flex align-items-center gap-2 mb-4 text-white opacity-75 hover-opacity-100">
+                            <i class="bi bi-arrow-left"></i> <span class="small fw-semibold">Return to Landing</span>
+                        </a>
+                        <span class="badge badge-lime d-inline-block mb-3">ENTERPRISE PORTAL</span>
+                        <h2 class="fw-bold display-6 text-white mb-3">Secure Executive Command</h2>
+                        <p class="text-light-gray small mb-4">
+                            Access real-time employee directories, salary audit logs, and department management governed by strict Role-Based Access Control (RBAC).
+                        </p>
+
+                        <div class="security-card p-3 rounded-4 bg-dark border border-secondary mb-4">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <span class="small fw-bold text-lime"><i class="bi bi-key-fill me-1"></i> STATELESS JWT</span>
+                                <span class="badge bg-success small">256-Bit Encrypted</span>
+                            </div>
+                            <div class="code-snippet small font-monospace text-light-gray bg-black p-2 rounded-2 text-truncate">
+                                Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoi...
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-3 border-top border-secondary position-relative z-1">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center gap-2">
+                                <div class="avatar-stack d-flex">
+                                    <img src="https://ui-avatars.com/api/?name=A+V&background=2563eb&color=fff" class="rounded-circle border border-dark" width="30" height="30" style="margin-right: -10px; z-index: 3;">
+                                    <img src="https://ui-avatars.com/api/?name=R+K&background=10b981&color=fff" class="rounded-circle border border-dark" width="30" height="30" style="margin-right: -10px; z-index: 2;">
+                                    <img src="https://ui-avatars.com/api/?name=M+D&background=f59e0b&color=fff" class="rounded-circle border border-dark" width="30" height="30" style="z-index: 1;">
+                                </div>
+                                <span class="small text-white ms-3 fw-medium">Active HR Team</span>
+                            </div>
+                            <span class="text-lime fw-bold small">v1.0.0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Clean Forms & Fast-Track Login -->
+                <div class="col-lg-7 p-4 p-md-5 bg-white d-flex flex-column justify-content-center">
+                    <div class="max-w-450 mx-auto w-100">
+                        
+                        <!-- Toggle Tabs -->
+                        <ul class="nav nav-pills nav-fill mb-4 p-2 bg-light rounded-4 border" id="auth-tab">
+                            <li class="nav-item">
+                                <button class="nav-link active rounded-3 py-2 fw-bold" id="signin-btn" onclick="switchAuthTab('login')"><i class="bi bi-person-check-fill me-2"></i>Sign In</button>
+                            </li>
+                            <li class="nav-item">
+                                <button class="nav-link rounded-3 py-2 fw-bold" id="signup-btn" onclick="switchAuthTab('signup')"><i class="bi bi-person-plus-fill me-2"></i>Register</button>
+                            </li>
+                        </ul>
+
+                        <!-- SIGN IN FORM -->
+                        <form id="login-form" onsubmit="handleLogin(event)">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold small text-secondary">WORK EMAIL</label>
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-text bg-light border-end-0 text-muted"><i class="bi bi-envelope"></i></span>
+                                    <input type="email" class="form-control bg-light border-start-0 fs-6" id="login-email" required placeholder="admin@ems.com" value="admin@ems.com">
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between">
+                                    <label class="form-label fw-bold small text-secondary">SECURITY PASSWORD</label>
+                                </div>
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-text bg-light border-end-0 text-muted"><i class="bi bi-lock"></i></span>
+                                    <input type="password" class="form-control bg-light border-start-0 fs-6" id="login-password" required placeholder="Password" value="admin123">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-pill-dark w-100 py-3 fw-bold fs-6">Authorize Access <i class="bi bi-box-arrow-in-right ms-2"></i></button>
+                            
+                            <!-- Demo fast-track hint -->
+                            <div class="mt-4 p-3 bg-lime-light rounded-3 border border-warning-subtle text-center">
+                                <span class="d-block small fw-bold text-dark mb-1"><i class="bi bi-lightning-charge-fill text-warning me-1"></i> FIRST TIME HERE?</span>
+                                <span class="text-secondary small">Because this is a zero-setup portable DB, click <b>Register</b> above to create your Admin identity first!</span>
+                            </div>
+                            
+                            <div id="login-error" class="form-text text-center mt-3 text-danger fw-bold"></div>
+                        </form>
+
+                        <!-- REGISTER FORM -->
+                        <form id="signup-form" class="hidden" onsubmit="handleSignup(event)">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold small text-secondary">FULL NAME</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light border-end-0 text-muted"><i class="bi bi-person"></i></span>
+                                    <input type="text" class="form-control bg-light border-start-0" id="signup-name" required placeholder="e.g. Alexander Pierce">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-bold small text-secondary">CORPORATE EMAIL</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light border-end-0 text-muted"><i class="bi bi-envelope"></i></span>
+                                    <input type="email" class="form-control bg-light border-start-0" id="signup-email" required placeholder="alexander@ems.com">
+                                </div>
+                            </div>
+                            <div class="row g-3 mb-4">
+                                <div class="col-sm-6">
+                                    <label class="form-label fw-bold small text-secondary">PASSWORD</label>
+                                    <input type="password" class="form-control bg-light" id="signup-password" required placeholder="Min 6 characters">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="form-label fw-bold small text-secondary">SECURITY ROLE</label>
+                                    <select class="form-select bg-light fw-semibold text-primary" id="signup-role">
+                                        <option value="ROLE_ADMIN">Admin (Full Control)</option>
+                                        <option value="ROLE_EMPLOYEE">Employee (Read-Only)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-pill-primary w-100 py-3 fw-bold fs-6">Create Executive Account <i class="bi bi-check2-circle ms-2"></i></button>
+                            <div id="signup-error" class="form-text text-center mt-3 fw-bold"></div>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- 3. AFTER-LOGIN EXECUTIVE WORKFORCE DASHBOARD VIEW                 -->
+    <!-- ================================================================= -->
+    <div id="dashboard-container" class="view hidden pb-5">
+        
+        <!-- Top Application Bar -->
+        <header class="navbar navbar-expand-lg border-bottom bg-white py-3 px-4 mb-4 sticky-top shadow-sm">
+            <div class="container-fluid max-w-1300">
+                <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="#" onclick="showLanding()">
+                    <span class="brand-dots"><i class="bi bi-circle-fill text-dark"></i><i class="bi bi-circle-fill text-lime"></i></span>
+                    <span class="brand-text">SMART<span class="fw-light">EMS</span></span>
+                    <span class="badge badge-lime ms-2 font-monospace small">WORKSPACE</span>
+                </a>
+                
+                <div class="d-flex align-items-center gap-3">
+                    <div class="live-beacon d-none d-md-flex align-items-center gap-2 bg-light px-3 py-1 rounded-pill border">
+                        <span class="beacon-dot bg-success rounded-circle" style="width: 8px; height: 8px;"></span>
+                        <span class="small fw-semibold text-secondary">Live Sync: Active</span>
+                    </div>
+
+                    <div class="dropdown">
+                        <div class="d-flex align-items-center gap-2 bg-light p-1 pe-3 rounded-pill border cursor-pointer" id="userDropdown">
+                            <img id="user-avatar-img" src="https://ui-avatars.com/api/?name=User&background=2563eb&color=fff" class="rounded-circle" width="34" height="34">
+                            <div class="d-none d-sm-block text-start lh-1">
+                                <span id="user-display-name" class="fw-bold small d-block mb-1">Administrator</span>
+                                <span id="user-role-badge" class="badge bg-dark text-lime px-2 py-0 text-uppercase" style="font-size: 10px;">ADMIN</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-pill-dark btn-sm px-4 py-2" onclick="handleLogout()" title="Disconnect session">
+                        <i class="bi bi-power me-1"></i> Log Out
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Body -->
+        <main class="container-fluid px-4 px-md-5">
+            <div class="max-w-1300 mx-auto">
+                
+                <!-- BENTO KPI MATRIX (STYLIZED FOR AFTER LOGIN) -->
+                <div class="row g-4 mb-4">
+                    <!-- KPI 1: Total Workforce (Charcoal Tabela Card) -->
+                    <div class="col-md-6 col-xl-3">
+                        <div class="bento-card bento-dark p-4 h-100 d-flex flex-column justify-content-between">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div class="kpi-icon-box bg-dark border border-secondary text-white"><i class="bi bi-people-fill fs-3"></i></div>
+                                <span class="badge badge-lime">+100% Active</span>
+                            </div>
+                            <div>
+                                <span class="d-block small text-light-gray fw-semibold text-uppercase">Total Workforce</span>
+                                <h2 class="display-5 fw-bold text-white mb-0" id="stat-total-emp">0</h2>
+                            </div>
+                            <div class="mt-3 pt-3 border-top border-secondary d-flex align-items-center justify-content-between text-secondary small">
+                                <span>Across All Divisions</span>
+                                <i class="bi bi-arrow-up-right text-lime"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- KPI 2: Departments (White Bento) -->
+                    <div class="col-md-6 col-xl-3">
+                        <div class="bento-card bento-white p-4 h-100 d-flex flex-column justify-content-between border">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div class="kpi-icon-box bg-light text-primary border"><i class="bi bi-diagram-3 fs-3"></i></div>
+                                <span class="badge bg-light text-dark border">Spring JPA</span>
+                            </div>
+                            <div>
+                                <span class="d-block small text-muted fw-semibold text-uppercase">Departmental Units</span>
+                                <h2 class="display-5 fw-bold text-dark mb-0" id="stat-total-dept">0</h2>
+                            </div>
+                            <div class="mt-3 pt-2">
+                                <div class="progress" style="height: 6px;">
+                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 45%;"></div>
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 30%;"></div>
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 25%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- KPI 3: Compensation (Lime Tabela Card) -->
+                    <div class="col-md-6 col-xl-3">
+                        <div class="bento-card bento-lime p-4 h-100 d-flex flex-column justify-content-between">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div class="kpi-icon-box bg-dark text-lime"><i class="bi bi-cash-stack fs-3"></i></div>
+                                <span class="badge bg-dark text-white">Fiscal Q3</span>
+                            </div>
+                            <div>
+                                <span class="d-block small fw-bold text-dark text-uppercase">Mean Salary Benchmark</span>
+                                <h2 class="display-5 fw-bold text-dark mb-0" id="stat-avg-sal">$0</h2>
+                            </div>
+                            <div class="mt-3 pt-3 border-top border-dark-subtle d-flex align-items-center justify-content-between text-dark small fw-bold">
+                                <span>Verified Compensation</span>
+                                <i class="bi bi-patch-check-fill fs-5"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- KPI 4: Primary Designation -->
+                    <div class="col-md-6 col-xl-3">
+                        <div class="bento-card bento-white p-4 h-100 d-flex flex-column justify-content-between border">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div class="kpi-icon-box bg-lime-light text-dark"><i class="bi bi-trophy-fill fs-3"></i></div>
+                                <span class="badge bg-dark text-white">Top Role</span>
+                            </div>
+                            <div>
+                                <span class="d-block small text-muted fw-semibold text-uppercase">Dominant Designation</span>
+                                <h3 class="fw-bold text-dark mb-0 text-truncate max-w-150" id="stat-top-role">N/A</h3>
+                            </div>
+                            <div class="mt-3 pt-3 border-top d-flex align-items-center justify-content-between text-muted small">
+                                <span>Enterprise Statistics</span>
+                                <i class="bi bi-bar-chart-fill text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COMMAND BAR & FILTER CONTROLS -->
+                <div class="bento-card bento-white p-3 p-md-4 mb-4 border">
+                    <div class="row align-items-center g-3">
+                        <div class="col-lg-5">
+                            <div class="input-group input-group-lg bg-light rounded-pill p-1 border">
+                                <span class="input-group-text bg-transparent border-0 text-muted ps-4"><i class="bi bi-search"></i></span>
+                                <input type="text" id="search-input" class="form-control bg-transparent border-0 fs-6" placeholder="Search by name, designation, or ID..." oninput="debounceSearch()">
+                            </div>
+                        </div>
+                        <div class="col-lg-7 d-flex flex-wrap align-items-center justify-content-lg-end gap-2">
+                            <select id="dept-filter" class="form-select bg-light border rounded-pill w-auto px-3 py-2 text-sm fw-medium" onchange="filterEmployees()">
+                                <option value="ALL">All Departments</option>
+                            </select>
+                            <select id="sort-filter" class="form-select bg-light border rounded-pill w-auto px-3 py-2 text-sm fw-medium" onchange="sortEmployees()">
+                                <option value="NAME_ASC">Sort: Name (A-Z)</option>
+                                <option value="SALARY_DESC">Highest Compensation</option>
+                                <option value="SALARY_ASC">Lowest Compensation</option>
+                                <option value="JOINING_DESC">Recently Onboarded</option>
+                            </select>
+                            <div class="vr mx-2 d-none d-md-block" style="height: 30px;"></div>
+                            <button class="btn btn-pill-dark px-4 py-2 admin-only" onclick="openModal('employee-modal')"><i class="bi bi-person-plus-fill me-1"></i> Add Employee</button>
+                            <button class="btn btn-outline-dark rounded-pill px-3 py-2 fw-semibold admin-only" onclick="openModal('dept-modal')"><i class="bi bi-folder-plus me-1"></i> New Dept</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DATA GRID CONTAINER -->
+                <div class="bento-card bento-white border overflow-hidden shadow-sm">
+                    <div class="p-4 border-bottom d-flex align-items-center justify-content-between bg-light">
+                        <div>
+                            <h5 class="fw-bold mb-0">Active Workforce Roster</h5>
+                            <span class="small text-muted">Real-time synchronized records from Spring Data JPA</span>
+                        </div>
+                        <span class="badge bg-white text-dark border px-3 py-2 rounded-pill"><i class="bi bi-database me-1 text-primary"></i> Relational Table</span>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0 custom-table">
+                            <thead class="bg-light border-bottom">
+                                <tr>
+                                    <th class="py-3 px-4 text-secondary small fw-bold">EMPLOYEE & ID</th>
+                                    <th class="py-3 text-secondary small fw-bold">DESIGNATION</th>
+                                    <th class="py-3 text-secondary small fw-bold">DEPARTMENT</th>
+                                    <th class="py-3 text-secondary small fw-bold">CONTACT CHANNELS</th>
+                                    <th class="py-3 text-secondary small fw-bold">STATUS & JOIN DATE</th>
+                                    <th class="py-3 text-secondary small fw-bold">SALARY</th>
+                                    <th class="py-3 px-4 text-end text-secondary small fw-bold admin-only">ACTIONS</th>
+                                </tr>
+                            </thead>
+                            <tbody id="employee-tbody" class="border-top-0">
+                                <!-- Populated dynamically by app.js with Avatar profile cards -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="empty-state" class="p-5 text-center text-muted hidden">
+                        <div class="icon-circle bg-light mx-auto mb-3" style="width: 64px; height: 64px;"><i class="bi bi-people fs-2 text-muted"></i></div>
+                        <h6 class="fw-bold text-dark">No Workforce Records Present</h6>
+                        <p class="small text-muted mb-3">Start building your enterprise directory by adding new employees or adjusting your filters.</p>
+                        <button class="btn btn-pill-dark px-4 admin-only" onclick="openModal('employee-modal')">+ Onboard First Employee</button>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- MODALS: ONBOARDING & DEPARTMENT CREATION                          -->
+    <!-- ================================================================= -->
+    
+    <!-- MODAL 1: EMPLOYEE ONBOARDING -->
+    <div class="modal fade" id="employee-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content rounded-5 border-0 shadow-lg p-3">
+                <div class="modal-header border-bottom pb-3">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="icon-circle bg-dark text-lime"><i class="bi bi-person-badge"></i></div>
+                        <div>
+                            <h5 class="modal-title fw-bold mb-0" id="emp-modal-title">Workforce Onboarding</h5>
+                            <span class="small text-muted">Enter verified employee credentials and compensation details</span>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close" onclick="closeModal('employee-modal')"></button>
+                </div>
+                <form id="employee-form" onsubmit="saveEmployee(event)">
+                    <div class="modal-body py-4">
+                        <input type="hidden" id="emp-id">
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold text-secondary">FULL NAME</label>
+                            <input type="text" class="form-control form-control-lg bg-light rounded-3" id="emp-name" required placeholder="e.g. Sarah Connor">
+                        </div>
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold text-secondary">CORPORATE EMAIL</label>
+                                <input type="email" class="form-control bg-light rounded-3 py-2" id="emp-email" required placeholder="sarah.c@company.com">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold text-secondary">PHONE CONTACT</label>
+                                <input type="text" class="form-control bg-light rounded-3 py-2" id="emp-phone" required placeholder="+1 (555) 321-7654">
+                            </div>
+                        </div>
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold text-secondary">DESIGNATION / TITLE</label>
+                                <input type="text" class="form-control bg-light rounded-3 py-2" id="emp-desg" required placeholder="Principal Lead Architect">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold text-secondary">ANNUAL COMPENSATION ($)</label>
+                                <input type="number" class="form-control bg-light rounded-3 py-2 fw-bold text-success" id="emp-sal" required min="1" step="any" placeholder="115000">
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold text-secondary">ASSIGNED DEPARTMENT</label>
+                                <select class="form-select bg-light rounded-3 py-2 fw-semibold" id="emp-dept" required></select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold text-secondary">OFFICIAL JOINING DATE</label>
+                                <input type="date" class="form-control bg-light rounded-3 py-2" id="emp-date" required>
+                            </div>
+                        </div>
+                        <div id="emp-form-error" class="form-text text-danger fw-bold mt-3"></div>
+                    </div>
+                    <div class="modal-footer border-top-0 pt-0">
+                        <button type="button" class="btn btn-light rounded-pill px-4 fw-semibold" onclick="closeModal('employee-modal')">Cancel</button>
+                        <button type="submit" class="btn btn-pill-dark px-5 py-2">Commit Record <i class="bi bi-cloud-check ms-1"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: DEPARTMENT CREATION -->
+    <div class="modal fade" id="dept-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-5 border-0 shadow-lg p-3">
+                <div class="modal-header border-bottom pb-3">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="icon-circle bg-primary text-white"><i class="bi bi-building-add"></i></div>
+                        <div>
+                            <h5 class="modal-title fw-bold mb-0">Establish Unit</h5>
+                            <span class="small text-muted">Create a new departmental relationship</span>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close" onclick="closeModal('dept-modal')"></button>
+                </div>
+                <form id="dept-form" onsubmit="saveDepartment(event)">
+                    <div class="modal-body py-4">
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold text-secondary">DEPARTMENT NAME</label>
+                            <input type="text" class="form-control bg-light rounded-3 py-2 fs-6 fw-bold" id="dept-name" required placeholder="e.g. Artificial Intelligence">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold text-secondary">RESPONSIBILITY OVERVIEW</label>
+                            <textarea class="form-control bg-light rounded-3" id="dept-desc" rows="3" placeholder="Core mission and departmental responsibilities"></textarea>
+                        </div>
+                        <div id="dept-form-error" class="form-text text-danger fw-bold"></div>
+                    </div>
+                    <div class="modal-footer border-top-0 pt-0">
+                        <button type="button" class="btn btn-light rounded-pill px-4 fw-semibold" onclick="closeModal('dept-modal')">Cancel</button>
+                        <button type="submit" class="btn btn-pill-primary px-4 py-2">Establish Unit <i class="bi bi-plus-circle ms-1"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Application Logic -->
+    <script src="js/app.js"></script>
+</body>
+</html>

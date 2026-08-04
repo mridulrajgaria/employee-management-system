@@ -41,6 +41,11 @@ public class SecurityConfig {
 
     // Endpoints open to everyone (no token needed)
     private static final String[] PUBLIC_URLS = {
+            "/",
+            "/index.html",
+            "/css/**",
+            "/js/**",
+            "/favicon.ico",
             "/api/auth/**",
             "/swagger-ui/**",
             "/swagger-ui.html",

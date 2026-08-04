@@ -18,11 +18,17 @@
     <description>Employee Management System with JWT Auth, Role-Based Access, and REST APIs</description>
 
     <properties>
-        <java.version>23</java.version>
+        <java.version>17</java.version>
         <jjwt.version>0.12.3</jjwt.version>
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
         <!-- Spring Boot Core -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -88,11 +94,11 @@
             <version>2.3.0</version>
         </dependency>
 
-        <!-- H2 for testing -->
+        <!-- H2 Embedded Database (Zero Setup / Portable) -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <scope>test</scope>
+            <scope>runtime</scope>
         </dependency>
 
         <!-- Spring Boot Test -->
@@ -114,8 +120,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>23</source>
-                    <target>23</target>
+                    <source>17</source>
+                    <target>17</target>
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.projectlombok</groupId>
