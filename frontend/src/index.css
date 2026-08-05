@@ -1,4 +1,6 @@
-/* TABELA BENTO-GRID BOOTSTRAP DESIGN SYSTEM (ENTERPRISE MASTERPIECE) */
+/* TABELA BENTO-GRID BOOTSTRAP DESIGN SYSTEM (ENTERPRISE REACT SPA) */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
     --bg-main: #fcfbf9;
@@ -31,9 +33,6 @@ h1, h2, h3, h4, h5, h6, .navbar-brand, .modal-title, .hero-headline {
 .max-w-400  { max-width: 400px; }
 .max-w-150  { max-width: 150px; }
 .cursor-pointer { cursor: pointer; }
-.hidden { display: none !important; }
-.view { display: none; }
-.view.active { display: block; }
 .z-1 { z-index: 1; }
 
 /* CUSTOM BUTTONS & PILLS */

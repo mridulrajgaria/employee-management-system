@@ -18,17 +18,24 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import java.util.List;
 
 /**
  * Security configuration:
  *  - Stateless (JWT, no sessions)
  *  - Role-based endpoint protection
  *  - BCrypt password hashing
+ *  - CORS enabled for standalone React client (Vite / Next.js on port 5173 / 3000)
  *
- * Interview key points:
- *  1. STATELESS sessions → JWT stored client-side
- *  2. @EnableMethodSecurity → @PreAuthorize annotations in controllers
- *  3. BCrypt with default strength 10
+ * Interview key points for Cognizant Java Full Stack Roles:
+ *  1. STATELESS sessions → JWT stored client-side in React localStorage/memory
+ *  2. CORS Configuration → Decouples frontend and backend deployment horizons
+ *  3. @EnableMethodSecurity → @PreAuthorize annotations in controllers
+ *  4. BCrypt password encryption with default strength 10 rounds
  */
 @Configuration
 @EnableWebSecurity
@@ -45,6 +52,7 @@ public class SecurityConfig {
             "/index.html",
             "/css/**",
             "/js/**",
+            "/assets/**",
             "/favicon.ico",
             "/api/auth/**",
             "/swagger-ui/**",
@@ -58,9 +66,11 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
             .csrf(AbstractHttpConfigurer::disable)          // Disabled for stateless REST API
+            .cors(cors -> cors.configurationSource(corsConfigurationSource())) // Enable enterprise CORS
             .sessionManagement(session ->
                 session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
+                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() // Permit CORS preflight requests
                 .requestMatchers(PUBLIC_URLS).permitAll()
 
                 // Only ADMIN can create/update/delete employees and departments
@@ -81,6 +91,21 @@ public class SecurityConfig {
             .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
+    }
+
+    /**
+     * CORS policy enabling independent React Vite development server interaction.
+     */
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(List.of("http://localhost:5173", "http://localhost:3000", "http://localhost:8080"));
+        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        configuration.setAllowedHeaders(List.of("Authorization", "Content-Type", "X-Requested-With", "Accept"));
+        configuration.setAllowCredentials(true);
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
     }
 
     @Bean
