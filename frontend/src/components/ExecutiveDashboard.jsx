@@ -116,7 +116,7 @@ export default function ExecutiveDashboard({ currentUser, onLogout, onReturnHome
                     <a className="navbar-brand fw-bold d-flex align-items-center gap-2 cursor-pointer" onClick={onReturnHome}>
                         <span className="brand-dots"><i className="bi bi-circle-fill text-dark"></i><i className="bi bi-circle-fill text-lime"></i></span>
                         <span className="brand-text">SMART<span className="fw-light">EMS</span></span>
-                        <span className="badge badge-lime ms-2 font-monospace small">REACT WORKSPACE</span>
+                        <span className="badge badge-lime ms-2 font-monospace small d-none d-md-inline-block">REACT WORKSPACE</span>
                     </a>
                     
                     <div className="d-flex align-items-center gap-3">

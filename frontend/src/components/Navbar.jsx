@@ -3,12 +3,13 @@ import React, { useState } from 'react';
 export default function Navbar({ currentView, setView, currentUser, onLogout }) {
     const [showArchModal, setShowArchModal] = useState(false);
     const [showSecModal, setShowSecModal] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
         <>
             <nav className="navbar navbar-expand-lg bg-transparent py-3 px-3 px-lg-5">
                 <div className="container-fluid max-w-1300">
-                    <a className="navbar-brand d-flex align-items-center gap-2 fw-bold cursor-pointer" onClick={() => setView('landing')}>
+                    <a className="navbar-brand d-flex align-items-center gap-2 fw-bold cursor-pointer" onClick={() => { setView('landing'); setIsMenuOpen(false); }}>
                         <span className="brand-dots">
                             <i className="bi bi-circle-fill text-dark"></i>
                             <i className="bi bi-circle-fill text-lime"></i>
@@ -16,28 +17,41 @@ export default function Navbar({ currentView, setView, currentUser, onLogout }) 
                         <span className="brand-text tracking-tight">SMART<span className="fw-light">EMS</span></span>
                     </a>
                     
-                    <button className="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <button className="navbar-toggler border-0 shadow-none p-2" type="button" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
 
-                    <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
-                        <ul className="navbar-nav gap-lg-4 fw-medium small text-uppercase" style={{ letterSpacing: '0.5px' }}>
+                    <div className={`collapse navbar-collapse justify-content-center ${isMenuOpen ? 'show mt-3 p-3 bg-white rounded-4 shadow border border-black-10' : ''}`} id="navbarNav">
+                        <ul className="navbar-nav gap-2 gap-lg-4 fw-medium small text-uppercase mb-2 mb-lg-0" style={{ letterSpacing: '0.5px' }}>
                             <li className="nav-item">
-                                <a className="nav-link cursor-pointer text-dark hover-opacity" onClick={() => setView(currentUser ? 'dashboard' : 'landing')}>
-                                    <i className="bi bi-window-fullscreen me-1 text-primary"></i> Platform
+                                <a className="nav-link cursor-pointer text-dark hover-opacity py-2" onClick={() => { setView(currentUser ? 'dashboard' : 'landing'); setIsMenuOpen(false); }}>
+                                    <i className="bi bi-window-fullscreen me-2 text-primary"></i> Platform
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link cursor-pointer text-dark hover-opacity" onClick={() => setShowArchModal(true)}>
-                                    <i className="bi bi-cpu-fill me-1 text-success"></i> Architecture
+                                <a className="nav-link cursor-pointer text-dark hover-opacity py-2" onClick={() => { setShowArchModal(true); setIsMenuOpen(false); }}>
+                                    <i className="bi bi-cpu-fill me-2 text-success"></i> Architecture
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link cursor-pointer text-dark hover-opacity" onClick={() => setShowSecModal(true)}>
-                                    <i className="bi bi-shield-lock-fill me-1 text-danger"></i> Security
+                                <a className="nav-link cursor-pointer text-dark hover-opacity py-2" onClick={() => { setShowSecModal(true); setIsMenuOpen(false); }}>
+                                    <i className="bi bi-shield-lock-fill me-2 text-danger"></i> Security
                                 </a>
                             </li>
                         </ul>
+
+                        {/* Mobile-only Action Portal Launcher */}
+                        <div className="d-flex d-lg-none mt-3 pt-3 border-top w-100">
+                            {currentUser ? (
+                                <button className="btn btn-pill-dark w-100 py-2 small fw-bold d-flex align-items-center justify-content-center" onClick={() => { setView('dashboard'); setIsMenuOpen(false); }}>
+                                    Executive Dashboard <i className="bi bi-arrow-right ms-2"></i>
+                                </button>
+                            ) : (
+                                <button className="btn btn-pill-dark w-100 py-2 small fw-bold d-flex align-items-center justify-content-center" onClick={() => { setView('auth'); setIsMenuOpen(false); }}>
+                                    Open Workforce Portal <i className="bi bi-box-arrow-in-right ms-2 text-lime"></i>
+                                </button>
+                            )}
+                        </div>
                     </div>
 
                     <div className="d-none d-lg-flex align-items-center gap-3">
