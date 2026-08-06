@@ -3,6 +3,22 @@
 
 ---
 
+## 🟢 Live Cloud Enterprise Demo & Endpoints
+Experience the live decoupled Full-Stack system instantly without cloning or local installation:
+
+| Architecture Layer | Cloud Host | Live HTTPS Production Endpoint |
+| :--- | :--- | :--- |
+| **🎨 Frontend SPA Workspace** | **Netlify** | **[https://ultimatesmartems.netlify.app/](https://ultimatesmartems.netlify.app/)** *(Primary Live Portal)* |
+| **☕ Spring Boot 3 Engine** | **Render (Docker)** | **[https://employee-management-system-5ssm.onrender.com/](https://employee-management-system-5ssm.onrender.com/)** *(Full-Stack Fallback & API)* |
+| **📚 OpenAPI REST Docs** | **Render (Swagger)** | **[https://employee-management-system-5ssm.onrender.com/swagger-ui.html](https://employee-management-system-5ssm.onrender.com/swagger-ui.html)** |
+
+> [!TIP]
+> **Pre-Seeded Executive Demo Credentials:**  
+> - **Executive Admin Email:** `admin@ems.com` | **Password:** `admin123`  
+> - **Staff Read-Only Email:** `staff@ems.com` | **Password:** `staff123`
+
+---
+
 ## 🌟 Project Highlights for Recruiters & Hiring Managers
 This enterprise-grade application demonstrates a clean, scalable, and beautifully architected **Java Full Stack** system built to enterprise production standards:
 1. **Decoupled Frontend UI Architecture:** Inspired by modern SaaS platforms (Tabela), built with **React 18 (Vite) & Bootstrap 5** featuring modular JSX components, stateful hooks (`useState`, `useEffect`, `useCallback`), an interactive Bento Box Grid landing page, a split-screen luxury authentication portal, dynamic employee avatars, and real-time dashboard sync beacons.
