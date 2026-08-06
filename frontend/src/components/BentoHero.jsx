@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function BentoHero({ onOpenAuth }) {
     return (
-        <main className="container-fluid px-3 px-md-4 pb-4">
+        <main className="container-fluid px-1 px-md-2 pb-3">
             <div className="bento-hero-wrapper max-w-1300 mx-auto p-4 p-md-4 shadow-sm">
                 
                 {/* Top Header Section (Compact, No Scrolling Overhead) */}
