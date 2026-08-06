@@ -136,13 +136,9 @@ export default function AuthPortal({ onLoginSuccess, onReturnHome }) {
                                             <input type="password" className="form-control bg-light border-start-0 fs-6" required placeholder="Password" value={loginData.password} onChange={(e) => setLoginData({...loginData, password: e.target.value})} />
                                         </div>
                                     </div>
-                                    <button type="submit" disabled={loading} className="btn btn-pill-dark w-100 py-3 fw-bold fs-6">
+                                    <button type="submit" disabled={loading} className="btn btn-pill-dark w-100 py-3 fw-bold fs-6 mt-2">
                                         {loading ? 'Authorizing Access...' : <span>Authorize Access <i className="bi bi-box-arrow-in-right ms-2"></i></span>}
                                     </button>
-                                    {/* Enterprise Demo Credentials */}
-                                    <div className="mt-4 pt-3 border-top text-center text-secondary small">
-                                        <i className="bi bi-shield-lock-fill text-primary me-1"></i> Pre-seeded Executive Admin: <span className="font-monospace fw-bold text-dark">admin@ems.com</span> / <span className="font-monospace fw-bold text-dark">admin123</span>
-                                    </div>
                                 </form>
                             ) : (
                                 /* REGISTER FORM */

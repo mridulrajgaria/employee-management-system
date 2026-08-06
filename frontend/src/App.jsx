@@ -14,7 +14,7 @@ export default function App() {
         if (token && storedUser) {
             try {
                 setCurrentUser(JSON.parse(storedUser));
-                setView('dashboard');
+                // Note: Retain default 'landing' view on root navigation so users always experience the BentoHero showcase
             } catch (err) {
                 localStorage.removeItem('jwt_token');
                 localStorage.removeItem('user_data');
