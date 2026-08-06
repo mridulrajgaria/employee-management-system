@@ -109,7 +109,9 @@ Once the server begins executing, select your destination:
 | **🗄️ Database Console** | **http://localhost:8080/h2-console** | Embedded H2 JDBC web inspector (JDBC URL: `jdbc:h2:file:./data/ems_db`, User: `sa`, No Password) |
 
 > [!TIP]  
-> **First time testing the Web Dashboard?** Since the database begins clean on your first boot, click the **Register** tab on the login screen, enter your details, and select **Administrator (Full Control)** as your role to unlock all CRUD controls, employee creation modals, and deletion privileges!
+> **Automated Pre-Seeded Demo Credentials:** Thanks to the integrated Spring Boot application bootstrapper (`DataSeeder.java`), default administrative credentials and sample workforce records are automatically seeded upon first startup! You can authorize access immediately using:  
+> - **Executive Admin Email:** `admin@ems.com` | **Password:** `admin123`  
+> - **Staff Read-Only Email:** `staff@ems.com` | **Password:** `staff123`
 
 ---
 
@@ -136,6 +138,7 @@ employee-management-system/
 ├── src/main/java/com/ems/
 │   ├── EmployeeManagementApplication.java    ← Spring Boot Main Launcher
 │   ├── config/
+│   │   ├── DataSeeder.java                   ← Automated schema & demo data bootstrapper (CommandLineRunner)
 │   │   ├── SecurityConfig.java               ← CORS configuration & Stateless JWT filter chain
 │   │   └── SwaggerConfig.java                ← OpenAPI 3 configuration with Bearer Auth scheme
 │   ├── controller/
@@ -163,10 +166,13 @@ employee-management-system/
 ### 1. Why Decoupled React 18 (Vite) + Spring Boot over traditional monolithic web architectures?
 > *"In modern Cloud-native and microservice environments, tight frontend coupling prevents independent scaling and CI/CD pipelines. I engineered a decoupled React 18 Single Page Application powered by Vite and modular JSX component hooks (`useState`, `useEffect`, `useCallback`), utilizing Axios interceptors to communicate over CORS-protected JSON Web Token boundaries with Spring Boot 3. Furthermore, to ensure seamless zero-setup evaluation during reviewer code evaluations, production React bundles are automatically compiled into Spring Boot's resource server, giving interviewers the best of both worlds: enterprise decoupled code separation with single-command deployment portability."*
 
-### 2. Database Agnostic Persistence Layer (Embedded H2 vs Enterprise MySQL)
+### 2. Application Lifecycle Hooks & Automated Database Bootstrapping (`CommandLineRunner`)
+> *"To eliminate onboarding friction during code evaluations and staging deployments, I leveraged Spring Boot's container lifecycle callbacks (`CommandLineRunner`) to construct an automated data seeding engine (`DataSeeder.java`). When the application initializes on a fresh database instance, the bootstrapper automatically detects empty repositories and injects pre-hashed BCrypt administrator identities, default departmental units, and realistic workforce datasets without requiring external SQL migration scripts or manual user registration."*
+
+### 3. Database Agnostic Persistence Layer (Embedded H2 vs Enterprise MySQL)
 > *"I structured the persistence layer around Spring Data JPA and Hibernate ORM to abstract database-specific dialects from core transactional logic. For continuous integration testing and instant reviewer demonstrations, the application boots on a zero-setup embedded H2 database. When deploying to a production enterprise server, switching to a high-availability MySQL instance simply requires uncommenting four datasource properties."*
 
-### 3. Stateless JWT Security, Enterprise CORS & Role-Based Access Control (RBAC)
+### 4. Stateless JWT Security, Enterprise CORS & Role-Based Access Control (RBAC)
 > *"To ensure horizontal container scalability across cloud environments, HTTP session state is completely disabled in favor of stateless JSON Web Tokens (JWT). Upon authentication, clients receive a signed JWT payload containing their user identity and assigned authority roles (`ROLE_ADMIN` vs `ROLE_EMPLOYEE`). A custom Spring Security filter intercepts all subsequent REST traffic to verify token integrity, while a strict CORS bean authorizes independent frontend interaction without executing blocking database session checks."*
 
 ---
