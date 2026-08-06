@@ -4,14 +4,14 @@
 # =========================================================================
 
 # Stage 1: Build the Spring Boot application and packaged React UI
-FROM maven:3.9.6-eclipse-temurin-17 AS build
+FROM maven:3.9.6-eclipse-temurin-21 AS build
 WORKDIR /build
 COPY pom.xml .
 COPY src ./src
 RUN mvn clean package -DskipTests
 
 # Stage 2: Create a lightweight production runtime container
-FROM eclipse-temurin:17-jre AS runtime
+FROM eclipse-temurin:21-jre AS runtime
 WORKDIR /app
 
 # Copy the compiled executable Spring Boot JAR from the build stage
